@@ -21,7 +21,7 @@ In summary, a node in ROS is a software component that performs a specific task 
 
 ## simple example task for creating a ROS node:
 
-1. Task: Create a node that subscribes to the #turtle1/pose# topic and prints the x, y, and z coordinates of the turtle's position to the console.
+1. Task: Create a node that subscribes to the turtle1/pose topic and prints the x, y, and z coordinates of the turtle's position to the console.
 Set up your ROS environment: Install ROS and source the appropriate ROS setup file for your shell.
 2. Create a ROS package: Use the catkin_create_pkg command to create a new package called turtle_pose_subscriber.
 3. Create a node file: Inside the package, create a new Python file called turtle_pose_subscriber.py.
