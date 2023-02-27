@@ -18,3 +18,39 @@ Nodes communicate with each other by sending and receiving messages on topics, w
 Nodes in ROS can be written in various programming languages such as Python, C++, and Java, and can run on a single computer or distributed across multiple computers. The ROS master is responsible for managing communication between nodes and provides a directory service for finding other nodes in the system.
 
 In summary, a node in ROS is a software component that performs a specific task and communicates with other nodes through messages and services on topics.
+
+## simple example task for creating a ROS node:
+
+1. Task: Create a node that subscribes to the #turtle1/pose# topic and prints the x, y, and z coordinates of the turtle's position to the console.
+Set up your ROS environment: Install ROS and source the appropriate ROS setup file for your shell.
+2. Create a ROS package: Use the catkin_create_pkg command to create a new package called turtle_pose_subscriber.
+3. Create a node file: Inside the package, create a new Python file called turtle_pose_subscriber.py.
+4. Write your node code: In the turtle_pose_subscriber.py file, write the code for your node. Here's an example code:
+```
+#!/usr/bin/env python
+
+import rospy
+from turtlesim.msg import Pose
+
+def pose_callback(pose):
+    rospy.loginfo("Turtle position - x: {}, y: {}, z: {}".format(pose.x, pose.y, pose.theta))
+
+if __name__ == '__main__':
+    rospy.init_node('turtle_pose_subscriber', anonymous=True)
+    rospy.Subscriber("turtle1/pose", Pose, pose_callback)
+    rospy.spin()
+
+```
+
+In this code, we import the necessary packages and define a callback function pose_callback() that is called whenever a message is received on the turtle1/pose topic. This function prints the turtle's x, y, and z coordinates to the console using the rospy.loginfo() function.
+
+We then initialize the node using rospy.init_node(), create a subscriber to the turtle1/pose topic using rospy.Subscriber(), and start the node using rospy.spin().
+
+5. Build your package: Use the catkin_make command to build your package and generate the necessary build files.
+6. Run your node: In a new terminal window, start a roscore and then run the turtle_pose_subscriber node using the rosrun command:
+```
+roscore
+rosrun turtle_pose_subscriber turtle_pose_subscriber.py
+
+```
+Your node should now be running and printing the turtle's position to the console whenever a new message is received on the turtle1/pose topic.
