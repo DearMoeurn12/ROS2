@@ -11,3 +11,10 @@ ROS (Robot Operating System) is a popular open-source platform used in robotics 
 5. Join the ROS community: The ROS community is very active and supportive. Join the ROS forum or attend ROS meetups to connect with other ROS developers and learn from their experiences.
 
 6. Keep learning: ROS is a constantly evolving platform, so it's important to keep learning and staying up-to-date with the latest developments. Attend ROS conferences and workshops, read ROS blogs and forums, and follow ROS developers on social media to stay informed.
+
+### waht is ROS node ?
+Nodes communicate with each other by sending and receiving messages on topics, which are named buses over which nodes communicate. A node can publish messages on a topic, subscribe to receive messages on a topic, or both. Nodes can also provide or use services, which are a way for nodes to request or provide data or functionality.
+
+Nodes in ROS can be written in various programming languages such as Python, C++, and Java, and can run on a single computer or distributed across multiple computers. The ROS master is responsible for managing communication between nodes and provides a directory service for finding other nodes in the system.
+
+In summary, a node in ROS is a software component that performs a specific task and communicates with other nodes through messages and services on topics.
